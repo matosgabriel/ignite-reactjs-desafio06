@@ -1,4 +1,10 @@
-import { Flex, Image, keyframes, Text, useBreakpoint } from '@chakra-ui/react';
+import { Flex, Image, Text, useBreakpoint } from '@chakra-ui/react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default function Home() {
   const breakpoint = useBreakpoint();
@@ -56,6 +62,52 @@ export default function Home() {
           />
         )}
       </Flex>
+
+      <Swiper
+        modules={[Navigation, Pagination]}
+        pagination={{
+          type: 'bullets',
+          clickable: true,
+        }}
+        navigation={true}
+      >
+        <SwiperSlide>
+          <Flex
+            align='center'
+            justify='center'
+            flexDir='column'
+            height={{ base: '250px', xl: '450px' }}
+            backgroundImage='/europe_image.svg'
+            backgroundRepeat='no-repeat'
+            backgroundSize='cover'
+            backgroundPosition='center'
+          >
+            <Text
+              color='white.800'
+              fontSize={{ base: '24px', xl: '48px' }}
+              fontWeight={700}
+              lineHeight={{ base: '36px', xl: '72px' }}
+              fontFamily='Poppins'
+            >
+              Europa
+            </Text>
+
+            <Text
+              color='gray.300'
+              fontSize={{ base: '14px', xl: '24px' }}
+              lineHeight={{ base: '21px', xl: '36px' }}
+              fontWeight={700}
+              fontFamily='Poppins'
+            >
+              O continente mais antigo
+            </Text>
+          </Flex>
+        </SwiperSlide>
+        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>Slide 5</SwiperSlide>
+      </Swiper>
     </>
   );
 }
