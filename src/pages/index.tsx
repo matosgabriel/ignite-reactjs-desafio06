@@ -1,4 +1,4 @@
-import { Flex, Image, Text, useBreakpoint } from '@chakra-ui/react';
+import { Flex, Image, keyframes, Text, useBreakpoint } from '@chakra-ui/react';
 
 export default function Home() {
   const breakpoint = useBreakpoint();
@@ -20,7 +20,7 @@ export default function Home() {
         justify='space-between'
         h={{ base: '163px', md: '240px', xl: '335px' }}
         align='center'
-        padding={{ base: '0 16px', md: '0 46px', xl: '0 140px' }}
+        padding={{ base: '0 16px', sm: '0 28px', md: '0 46px', xl: '0 140px' }}
         backgroundImage='/background.svg'
         backgroundRepeat='no-repeat'
         backgroundSize='cover'
@@ -48,7 +48,13 @@ export default function Home() {
           </Text>
         </Flex>
 
-        {breakpoint != 'base' && breakpoint != 'sm' && <h1>Airplane image</h1>}
+        {breakpoint != 'base' && breakpoint != 'sm' && (
+          <Image
+            src='/airplane.svg'
+            h={{ md: '220px', xl: '270px' }}
+            mt={{ md: '80px', xl: '125px' }}
+          />
+        )}
       </Flex>
     </>
   );
