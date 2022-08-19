@@ -6,6 +6,7 @@ import {
   Divider,
   useBreakpoint,
 } from '@chakra-ui/react';
+import Head from 'next/head';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -20,6 +21,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Worldtrip | Home</title>
+      </Head>
       <Flex
         as='header'
         w='100%'
