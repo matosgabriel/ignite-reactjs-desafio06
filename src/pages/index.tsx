@@ -86,9 +86,34 @@ export default function Home() {
             bgImageSrc='/asia_image.jpg'
           />
         </SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
+        <SwiperSlide>
+          <ContinentSlide
+            title='África'
+            description='O continente mais plural'
+            bgImageSrc='/africa_image.jpg'
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ContinentSlide
+            title='América'
+            description='O continente com maior diversidade'
+            bgImageSrc='/america_image.jpg'
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ContinentSlide
+            title='Oceania'
+            description='O continente mais isolado'
+            bgImageSrc='/oceania_image.jpg'
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ContinentSlide
+            title='Antártida'
+            description='O continente mais frio'
+            bgImageSrc='/antartida_image.jpg'
+          />
+        </SwiperSlide>
       </Swiper>
     </>
   );
