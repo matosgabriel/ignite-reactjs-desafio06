@@ -113,6 +113,20 @@ export default function Home() {
         />
       </Flex>
 
+      <Flex
+        flexDir='column'
+        align='center'
+        fontSize={{ base: '20px' }}
+        lineHeight={{ base: '30px' }}
+        fontWeight={500}
+        fontFamily='Poppins'
+        m={{ base: '34px 0 20px', md: '44px', xl: '52px 0' }}
+      >
+        <Text>Vamos nessa?</Text>
+        <Text>Então escolha seu continente</Text>
+      </Flex>
+
+      {/** Carousel */}
       <Flex m={{ base: '0', md: '0 40px', lg: '0 60px', xl: '0 100px' }}>
         <Swiper
           modules={[Navigation, Pagination]}
