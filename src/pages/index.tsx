@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { ContinentSlide } from '~/components/ContinentSlide';
 
 export default function Home() {
   const breakpoint = useBreakpoint();
@@ -39,7 +40,7 @@ export default function Home() {
             fontFamily='Poppins'
             fontWeight={500}
           >
-            5 Continentes, {<br />} infinitas possibilidades.
+            6 Continentes, {<br />} infinitas possibilidades.
           </Text>
           <Text
             fontSize={{ base: '14px', md: '16px', xl: '20px' }}
@@ -72,38 +73,19 @@ export default function Home() {
         navigation={true}
       >
         <SwiperSlide>
-          <Flex
-            align='center'
-            justify='center'
-            flexDir='column'
-            height={{ base: '250px', xl: '450px' }}
-            backgroundImage='/europe_image.svg'
-            backgroundRepeat='no-repeat'
-            backgroundSize='cover'
-            backgroundPosition='center'
-          >
-            <Text
-              color='white.800'
-              fontSize={{ base: '24px', xl: '48px' }}
-              fontWeight={700}
-              lineHeight={{ base: '36px', xl: '72px' }}
-              fontFamily='Poppins'
-            >
-              Europa
-            </Text>
-
-            <Text
-              color='gray.300'
-              fontSize={{ base: '14px', xl: '24px' }}
-              lineHeight={{ base: '21px', xl: '36px' }}
-              fontWeight={700}
-              fontFamily='Poppins'
-            >
-              O continente mais antigo
-            </Text>
-          </Flex>
+          <ContinentSlide
+            title='Europa'
+            description='O continente mais antigo'
+            bgImageSrc='/europe_image.jpg'
+          />
         </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>
+          <ContinentSlide
+            title='Ásia'
+            description='O continente mais populoso'
+            bgImageSrc='/asia_image.jpg'
+          />
+        </SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
         <SwiperSlide>Slide 5</SwiperSlide>
