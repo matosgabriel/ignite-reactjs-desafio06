@@ -1,16 +1,16 @@
 import { Flex, Text } from '@chakra-ui/react';
 
-interface ContinentSlideProps {
+interface ContinentSlideItemProps {
   title: string;
   description: string;
   bgImageSrc: string;
 }
 
-function ContinentSlide({
+function ContinentSlideItem({
   title,
   description,
   bgImageSrc,
-}: ContinentSlideProps) {
+}: ContinentSlideItemProps) {
   return (
     <Flex
       align='center'
@@ -45,4 +45,4 @@ function ContinentSlide({
   );
 }
 
-export { ContinentSlide };
+export { ContinentSlideItem };

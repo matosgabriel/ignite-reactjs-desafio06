@@ -1,11 +1,12 @@
-import { Flex, Image, Text, useBreakpoint } from '@chakra-ui/react';
+import { Flex, Grid, Image, Text, useBreakpoint } from '@chakra-ui/react';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { ContinentSlide } from '~/components/ContinentSlide';
+import { ContinentSlideItem } from '~/components/ContinentSlideItem';
+import { TravelTypesItem } from '~/components/TravelTypesItem';
 
 export default function Home() {
   const breakpoint = useBreakpoint();
@@ -58,10 +59,41 @@ export default function Home() {
         {breakpoint != 'base' && breakpoint != 'sm' && (
           <Image
             src='/airplane.svg'
-            h={{ md: '220px', xl: '270px' }}
-            mt={{ md: '80px', xl: '125px' }}
+            h={{ md: '200px', lg: '220px', xl: '270px' }}
+            mt={{ md: '76px', lg: '80px', xl: '125px' }}
           />
         )}
+      </Flex>
+
+      {/** Travel types */}
+      <Flex
+        m={{
+          base: '36px 50px',
+          sm: '36px 76px',
+          md: '62px 94px',
+          lg: '78px 110px',
+          xl: '114px 140px',
+        }}
+      >
+        <Grid
+          templateColumns={{
+            base: '1fr 1fr',
+            md: '1fr 1fr 1fr',
+            xl: 'repeat(5, 1fr)',
+          }}
+          gap={{
+            base: '27px 30px',
+            sm: '36px 42px',
+            md: '42px 48px',
+          }}
+          width='100%'
+        >
+          <TravelTypesItem title='noite' iconSrc='/night_icon.svg' />
+          <TravelTypesItem title='praia' iconSrc='/beach_icon.svg' />
+          <TravelTypesItem title='moderno' iconSrc='/modern_icon.svg' />
+          <TravelTypesItem title='clássico' iconSrc='/classic_icon.svg' />
+          <TravelTypesItem title='mais...' iconSrc='/more_icon.svg' />
+        </Grid>
       </Flex>
 
       <Swiper
@@ -73,42 +105,42 @@ export default function Home() {
         navigation={true}
       >
         <SwiperSlide>
-          <ContinentSlide
+          <ContinentSlideItem
             title='Europa'
             description='O continente mais antigo'
             bgImageSrc='/europe_image.jpg'
           />
         </SwiperSlide>
         <SwiperSlide>
-          <ContinentSlide
+          <ContinentSlideItem
             title='Ásia'
             description='O continente mais populoso'
             bgImageSrc='/asia_image.jpg'
           />
         </SwiperSlide>
         <SwiperSlide>
-          <ContinentSlide
+          <ContinentSlideItem
             title='África'
             description='O continente mais plural'
             bgImageSrc='/africa_image.jpg'
           />
         </SwiperSlide>
         <SwiperSlide>
-          <ContinentSlide
+          <ContinentSlideItem
             title='América'
             description='O continente com maior diversidade'
             bgImageSrc='/america_image.jpg'
           />
         </SwiperSlide>
         <SwiperSlide>
-          <ContinentSlide
+          <ContinentSlideItem
             title='Oceania'
             description='O continente mais isolado'
             bgImageSrc='/oceania_image.jpg'
           />
         </SwiperSlide>
         <SwiperSlide>
-          <ContinentSlide
+          <ContinentSlideItem
             title='Antártida'
             description='O continente mais frio'
             bgImageSrc='/antartida_image.jpg'
