@@ -8,8 +8,6 @@ interface TravelTypesItemProps {
 function TravelTypesItem({ title, iconSrc }: TravelTypesItemProps) {
   const breakpoint = useBreakpoint();
 
-  console.log(breakpoint);
-
   return (
     <Flex
       align={{ base: 'baseline', xl: 'center' }}

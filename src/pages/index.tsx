@@ -1,4 +1,11 @@
-import { Flex, Grid, Image, Text, useBreakpoint } from '@chakra-ui/react';
+import {
+  Flex,
+  Grid,
+  Image,
+  Text,
+  Divider,
+  useBreakpoint,
+} from '@chakra-ui/react';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -68,12 +75,14 @@ export default function Home() {
       {/** Travel types */}
       <Flex
         m={{
-          base: '36px 50px',
-          sm: '36px 76px',
-          md: '62px 94px',
-          lg: '78px 110px',
-          xl: '114px 140px',
+          base: '36px 50px 0',
+          sm: '36px 76px 0',
+          md: '62px 94px 0',
+          lg: '78px 110px 0',
+          xl: '114px 140px 0',
         }}
+        flexDir='column'
+        align='center'
       >
         <Grid
           templateColumns={{
@@ -94,59 +103,69 @@ export default function Home() {
           <TravelTypesItem title='clássico' iconSrc='/classic_icon.svg' />
           <TravelTypesItem title='mais...' iconSrc='/more_icon.svg' />
         </Grid>
+
+        <Divider
+          height='1px'
+          bg='gray.800'
+          w='60px'
+          mt={{ base: '36px', xl: '80px' }}
+          border='1px solid gray.800'
+        />
       </Flex>
 
-      <Swiper
-        modules={[Navigation, Pagination]}
-        pagination={{
-          type: 'bullets',
-          clickable: true,
-        }}
-        navigation={true}
-      >
-        <SwiperSlide>
-          <ContinentSlideItem
-            title='Europa'
-            description='O continente mais antigo'
-            bgImageSrc='/europe_image.jpg'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ContinentSlideItem
-            title='Ásia'
-            description='O continente mais populoso'
-            bgImageSrc='/asia_image.jpg'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ContinentSlideItem
-            title='África'
-            description='O continente mais plural'
-            bgImageSrc='/africa_image.jpg'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ContinentSlideItem
-            title='América'
-            description='O continente com maior diversidade'
-            bgImageSrc='/america_image.jpg'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ContinentSlideItem
-            title='Oceania'
-            description='O continente mais isolado'
-            bgImageSrc='/oceania_image.jpg'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ContinentSlideItem
-            title='Antártida'
-            description='O continente mais frio'
-            bgImageSrc='/antartida_image.jpg'
-          />
-        </SwiperSlide>
-      </Swiper>
+      <Flex m={{ base: '0', md: '0 40px', lg: '0 60px', xl: '0 100px' }}>
+        <Swiper
+          modules={[Navigation, Pagination]}
+          pagination={{
+            type: 'bullets',
+            clickable: true,
+          }}
+          navigation={true}
+        >
+          <SwiperSlide>
+            <ContinentSlideItem
+              title='Europa'
+              description='O continente mais antigo'
+              bgImageSrc='/europe_image.jpg'
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <ContinentSlideItem
+              title='Ásia'
+              description='O continente mais populoso'
+              bgImageSrc='/asia_image.jpg'
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <ContinentSlideItem
+              title='África'
+              description='O continente mais plural'
+              bgImageSrc='/africa_image.jpg'
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <ContinentSlideItem
+              title='América'
+              description='O continente com maior diversidade'
+              bgImageSrc='/america_image.jpg'
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <ContinentSlideItem
+              title='Oceania'
+              description='O continente mais isolado'
+              bgImageSrc='/oceania_image.jpg'
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <ContinentSlideItem
+              title='Antártida'
+              description='O continente mais frio'
+              bgImageSrc='/antartida_image.jpg'
+            />
+          </SwiperSlide>
+        </Swiper>
+      </Flex>
     </>
   );
 }
