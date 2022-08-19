@@ -5,19 +5,19 @@ export const theme = extendTheme({
     gray: {
       '300': '#DADADA',
       '400': '#999',
-      '800': '#47585B'
+      '800': '#47585B',
     },
     white: {
-      '800': '#F5F8FA'
-    }
+      '800': '#F5F8FA',
+    },
   },
 
   styles: {
     global: {
       body: {
         bg: '#F5F8FA',
-        // color: 
-      }
-    }
-  }
+        // color:
+      },
+    },
+  },
 });
