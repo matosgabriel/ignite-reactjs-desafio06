@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Image } from '@chakra-ui/react';
+import { Button, Flex, Image } from '@chakra-ui/react';
 
 interface HeaderProps {
   showBackButton?: boolean;

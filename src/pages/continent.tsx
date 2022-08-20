@@ -5,6 +5,7 @@ import {
   Text,
   Divider,
   useBreakpoint,
+  HStack,
 } from '@chakra-ui/react';
 import Head from 'next/head';
 import { Navigation, Pagination } from 'swiper';
@@ -19,6 +20,9 @@ import { TravelTypesItem } from '~/components/TravelTypesItem';
 
 export default function Continent() {
   const breakpoint = useBreakpoint();
+  const countriesCount = 50;
+  const languagesCount = 60;
+  const plus100Cities = 24;
 
   return (
     <>
@@ -26,157 +30,116 @@ export default function Continent() {
         <title>Worldtrip | Continent</title>
       </Head>
 
-      <Header />
+      <Header showBackButton />
 
       <Flex
         w='100%'
-        justify='space-between'
-        h={{ base: '163px', md: '240px', xl: '335px' }}
+        justify='center'
+        h={{ base: '150px', md: '380px', xl: '500px' }}
         align='center'
-        padding={{ base: '0 16px', sm: '0 28px', md: '0 46px', xl: '0 140px' }}
-        backgroundImage='/background.svg'
+        backgroundImage='/europe_image.jpg'
         backgroundRepeat='no-repeat'
         backgroundSize='cover'
       >
-        <Flex flexDir='column'>
-          <Text
-            fontSize={{ base: '20px', md: '26px', xl: '36px' }}
-            lineHeight={{ base: '30px', md: '40px', xl: '54px' }}
-            color='white.800'
-            fontFamily='Poppins'
-            fontWeight={500}
-          >
-            6 Continentes, {<br />} infinitas possibilidades.
-          </Text>
-          <Text
-            fontSize={{ base: '14px', md: '16px', xl: '20px' }}
-            lineHeight={{ base: '21px', md: '26px', xl: '30px' }}
-            color='gray.300'
-            fontFamily='Poppins'
-            fontWeight={400}
-            marginTop={{ base: '8px', md: '12px', xl: '20px' }}
-          >
-            Chegou a hora de tirar do papel a viagem que {<br />} você sempre
-            sonhou.
-          </Text>
-        </Flex>
-
-        {breakpoint != 'base' && breakpoint != 'sm' && (
-          <Image
-            src='/airplane.svg'
-            h={{ md: '200px', lg: '220px', xl: '270px' }}
-            mt={{ md: '76px', lg: '80px', xl: '125px' }}
-          />
-        )}
-      </Flex>
-
-      {/** Travel types */}
-      <Flex
-        m={{
-          base: '36px 50px 0',
-          sm: '36px 76px 0',
-          md: '62px 94px 0',
-          lg: '78px 110px 0',
-          xl: '114px 140px 0',
-        }}
-        flexDir='column'
-        align='center'
-      >
-        <Grid
-          templateColumns={{
-            base: '1fr 1fr',
-            md: '1fr 1fr 1fr',
-            xl: 'repeat(5, 1fr)',
-          }}
-          gap={{
-            base: '27px 30px',
-            sm: '36px 42px',
-            md: '42px 48px',
-          }}
-          width='100%'
+        <Text
+          fontSize={{ base: '28px', md: '36px', xl: '48px' }}
+          lineHeight={{ base: '42px', md: '58px', xl: '72px' }}
+          fontWeight={600}
+          fontFamily='Poppins'
+          color='white.800'
         >
-          <TravelTypesItem title='noite' iconSrc='/night_icon.svg' />
-          <TravelTypesItem title='praia' iconSrc='/beach_icon.svg' />
-          <TravelTypesItem title='moderno' iconSrc='/modern_icon.svg' />
-          <TravelTypesItem title='clássico' iconSrc='/classic_icon.svg' />
-          <TravelTypesItem title='mais...' iconSrc='/more_icon.svg' />
-        </Grid>
-
-        <Divider
-          height='1px'
-          bg='gray.800'
-          w='60px'
-          mt={{ base: '36px', xl: '80px' }}
-          border='1px solid gray.800'
-        />
+          Europa
+        </Text>
       </Flex>
 
+      {/** About the continent */}
       <Flex
-        flexDir='column'
-        align='center'
-        fontSize={{ base: '20px' }}
-        lineHeight={{ base: '30px' }}
-        fontWeight={500}
-        fontFamily='Poppins'
-        m={{ base: '34px 0 20px', md: '44px', xl: '52px 0' }}
+        flexDir={{ base: 'column', lg: 'row' }}
+        m={{ base: '24px auto 32px', lg: '80px auto' }}
+        justify={{ base: 'center', lg: 'space-between' }}
+        width={{ base: '90%', xl: '85%' }}
       >
-        <Text>Vamos nessa?</Text>
-        <Text>Então escolha seu continente</Text>
-      </Flex>
-
-      {/** Carousel */}
-      <Flex m={{ base: '0', md: '0 40px', lg: '0 60px', xl: '0 100px' }}>
-        <Swiper
-          modules={[Navigation, Pagination]}
-          pagination={{
-            type: 'bullets',
-            clickable: true,
-          }}
-          navigation={true}
+        <Text
+          textAlign='justify'
+          width={{ base: '100%', lg: '450px', xl: '600px', '2xl': '800px' }}
+          fontSize={{ base: '14px', md: '18px', xl: '24px' }}
+          lineHeight={{ base: '21px', md: '28px', xl: '36px' }}
         >
-          <SwiperSlide>
-            <ContinentSlideItem
-              title='Europa'
-              description='O continente mais antigo'
-              bgImageSrc='/europe_image.jpg'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ContinentSlideItem
-              title='Ásia'
-              description='O continente mais populoso'
-              bgImageSrc='/asia_image.jpg'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ContinentSlideItem
-              title='África'
-              description='O continente mais plural'
-              bgImageSrc='/africa_image.jpg'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ContinentSlideItem
-              title='América'
-              description='O continente com maior diversidade'
-              bgImageSrc='/america_image.jpg'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ContinentSlideItem
-              title='Oceania'
-              description='O continente mais isolado'
-              bgImageSrc='/oceania_image.jpg'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ContinentSlideItem
-              title='Antártida'
-              description='O continente mais frio'
-              bgImageSrc='/antartida_image.jpg'
-            />
-          </SwiperSlide>
-        </Swiper>
+          A Europa é, por convenção, um dos seis continentes do mundo.
+          Compreendendo a península ocidental da Eurásia, a Europa geralmente
+          divide-se da Ásia a leste pela divisória de águas dos montes Urais, o
+          rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste
+        </Text>
+
+        <HStack
+          mt={{ base: '16px', lg: '0px' }}
+          justifyContent='center'
+          alignItems='center'
+          spacing={{ base: '40px' }}
+        >
+          <Flex flexDir='column' align={{ lg: 'center' }}>
+            <Text
+              color='yellow.700'
+              fontSize={{ base: '24px', md: '36px', xl: '48px' }}
+              lineHeight={{ base: '26px', md: '48px', xl: '50px' }}
+              fontWeight={{ base: 400, lg: 600 }}
+              fontFamily='Poppins'
+            >
+              {countriesCount}
+            </Text>
+            <Text
+              fontSize={{ base: '18px', md: '21px', xl: '24px' }}
+              lineHeight={{ base: '27px', md: '30px', xl: '36px' }}
+              color='gray.800'
+              fontWeight={{ base: 400, lg: 600 }}
+              fontFamily='Poppins'
+            >
+              países
+            </Text>
+          </Flex>
+
+          <Flex flexDir='column' align={{ lg: 'center' }}>
+            <Text
+              color='yellow.700'
+              fontSize={{ base: '24px', md: '36px', xl: '48px' }}
+              lineHeight={{ base: '26px', md: '48px', xl: '50px' }}
+              fontWeight={{ base: 400, lg: 600 }}
+              fontFamily='Poppins'
+            >
+              {languagesCount}
+            </Text>
+            <Text
+              fontSize={{ base: '18px', md: '21px', xl: '24px' }}
+              lineHeight={{ base: '27px', md: '30px', xl: '36px' }}
+              fontWeight={{ base: 400, lg: 600 }}
+              fontFamily='Poppins'
+              color='gray.800'
+            >
+              línguas
+            </Text>
+          </Flex>
+
+          <Flex flexDir='column' align={{ lg: 'center' }}>
+            <Text
+              color='yellow.700'
+              fontSize={{ base: '24px', md: '36px', xl: '48px' }}
+              lineHeight={{ base: '26px', md: '48px', xl: '50px' }}
+              fontWeight={{ base: 400, lg: 600 }}
+              fontFamily='Poppins'
+            >
+              {plus100Cities}
+            </Text>
+            <Text
+              fontSize={{ base: '18px', md: '21px', xl: '24px' }}
+              lineHeight={{ base: '27px', md: '30px', xl: '36px' }}
+              fontWeight={{ base: 400, lg: 600 }}
+              fontFamily='Poppins'
+              color='gray.800'
+            >
+              cidades +100
+            </Text>
+          </Flex>
+        </HStack>
       </Flex>
     </>
   );
