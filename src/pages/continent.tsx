@@ -1,22 +1,10 @@
-import {
-  Flex,
-  Grid,
-  Image,
-  Text,
-  Divider,
-  useBreakpoint,
-  HStack,
-} from '@chakra-ui/react';
+import { Flex, Text, useBreakpoint, HStack, Image } from '@chakra-ui/react';
 import Head from 'next/head';
-import { Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { ContinentSlideItem } from '~/components/ContinentSlideItem';
 import { Header } from '~/components/Header';
-import { TravelTypesItem } from '~/components/TravelTypesItem';
 
 export default function Continent() {
   const breakpoint = useBreakpoint();
@@ -140,6 +128,65 @@ export default function Continent() {
             </Text>
           </Flex>
         </HStack>
+      </Flex>
+
+      {/** List of +100 cities */}
+      <Flex flexDir='column' align='center'>
+        <Text>Cidades +100</Text>
+
+        <Flex
+          flexDir='column'
+          width='256px'
+          borderRadius='5px'
+          overflow='hidden'
+          bg='#fff'
+        >
+          <Image
+            src='/europe_image.jpg'
+            height={{ base: '173px' }}
+            objectFit='cover'
+          />
+
+          {/** Description */}
+          <Flex
+            p={{ base: '18px 24px 25px' }}
+            borderWidth='0 1px 1px 1px'
+            borderColor='#FFBA08'
+            borderRadius='0 0 5px 5px'
+            justify='space-between'
+            align='center'
+          >
+            <Flex flexDir='column'>
+              <Text
+                fontFamily='Poppins'
+                fontSize={{ base: '20px' }}
+                lineHeight={{ base: '25px' }}
+                fontWeight={600}
+                color='gray.800'
+              >
+                Londres
+              </Text>
+              <Text
+                mt={{ base: '12px' }}
+                fontFamily='Poppins'
+                fontSize={{ base: '16px' }}
+                lineHeight={{ base: '26px' }}
+                fontWeight={500}
+                color='gray.400'
+              >
+                Reino Unido
+              </Text>
+            </Flex>
+
+            <Image
+              src='/europe_image.jpg'
+              objectFit='cover'
+              height={{ base: '30px' }}
+              width={{ base: '30px' }}
+              borderRadius='50%'
+            />
+          </Flex>
+        </Flex>
       </Flex>
     </>
   );
