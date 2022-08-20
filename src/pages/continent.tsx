@@ -17,13 +17,13 @@ import { ContinentSlideItem } from '~/components/ContinentSlideItem';
 import { Header } from '~/components/Header';
 import { TravelTypesItem } from '~/components/TravelTypesItem';
 
-export default function Home() {
+export default function Continent() {
   const breakpoint = useBreakpoint();
 
   return (
     <>
       <Head>
-        <title>Worldtrip | Home</title>
+        <title>Worldtrip | Continent</title>
       </Head>
 
       <Header />
