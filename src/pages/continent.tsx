@@ -1,9 +1,17 @@
-import { Flex, Text, useBreakpoint, HStack, Image } from '@chakra-ui/react';
+import {
+  Flex,
+  Text,
+  useBreakpoint,
+  HStack,
+  Image,
+  Grid,
+} from '@chakra-ui/react';
 import Head from 'next/head';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { CityCard } from '~/components/CityCard';
 import { Header } from '~/components/Header';
 
 export default function Continent() {
@@ -12,6 +20,7 @@ export default function Continent() {
   const languagesCount = 60;
   const plus100Cities = 24;
 
+  console.log(breakpoint);
   return (
     <>
       <Head>
@@ -131,61 +140,22 @@ export default function Continent() {
       </Flex>
 
       {/** List of +100 cities */}
-      <Flex flexDir='column' align='center'>
+      <Flex
+        flexDir='column'
+        align='center'
+        m={{ base: '0 auto 16px', md: '0 auto 28px', xl: '0 auto 35px' }}
+        width={{ xl: '85%' }}
+        bg='#222'
+      >
         <Text>Cidades +100</Text>
 
-        <Flex
-          flexDir='column'
-          width='256px'
-          borderRadius='5px'
-          overflow='hidden'
-          bg='#fff'
-        >
-          <Image
-            src='/europe_image.jpg'
-            height={{ base: '173px' }}
-            objectFit='cover'
-          />
-
-          {/** Description */}
-          <Flex
-            p={{ base: '18px 24px 25px' }}
-            borderWidth='0 1px 1px 1px'
-            borderColor='#FFBA08'
-            borderRadius='0 0 5px 5px'
-            justify='space-between'
-            align='center'
-          >
-            <Flex flexDir='column'>
-              <Text
-                fontFamily='Poppins'
-                fontSize={{ base: '20px' }}
-                lineHeight={{ base: '25px' }}
-                fontWeight={600}
-                color='gray.800'
-              >
-                Londres
-              </Text>
-              <Text
-                mt={{ base: '12px' }}
-                fontFamily='Poppins'
-                fontSize={{ base: '16px' }}
-                lineHeight={{ base: '26px' }}
-                fontWeight={500}
-                color='gray.400'
-              >
-                Reino Unido
-              </Text>
-            </Flex>
-
-            <Image
-              src='/europe_image.jpg'
-              objectFit='cover'
-              height={{ base: '30px' }}
-              width={{ base: '30px' }}
-              borderRadius='50%'
-            />
-          </Flex>
+        <Flex justify='space-between' overflowWrap='normal' width='500px'>
+          <CityCard />
+          <CityCard />
+          <CityCard />
+          <CityCard />
+          <CityCard />
+          <CityCard />
         </Flex>
       </Flex>
     </>
