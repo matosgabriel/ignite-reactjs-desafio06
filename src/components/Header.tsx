@@ -31,7 +31,7 @@ function Header({ showBackButton = false }: HeaderProps) {
             border='0px'
             _focus={{ outline: 'none' }}
           >
-            <Image src='/arrow_left_icon.svg' />
+            <Image src='/arrow_left_icon.svg' height={{ base: '8px', md: '12px', xl: '16px' }} />
           </Button>
         )}
         <Image src='/logo.svg' h={{ base: '20px', md: '32px', xl: '46px' }} />
