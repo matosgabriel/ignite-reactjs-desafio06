@@ -3,10 +3,11 @@ import {
   Text,
   useBreakpoint,
   HStack,
-  Image,
   Grid,
+  VStack,
 } from '@chakra-ui/react';
 import Head from 'next/head';
+import { useMemo } from 'react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -20,7 +21,21 @@ export default function Continent() {
   const languagesCount = 60;
   const plus100Cities = 24;
 
-  console.log(breakpoint);
+  const cardItemsForRowCount = useMemo(() => {
+    switch(breakpoint) {
+      case 'base':
+        return 1;
+      case 'md':
+        return 2;
+      case 'lg':
+        return 3;
+      case 'xl':
+        return 4;
+      case '2xl':
+        return 5;
+    }
+  }, [breakpoint]);
+
   return (
     <>
       <Head>
@@ -144,19 +159,32 @@ export default function Continent() {
         flexDir='column'
         align='center'
         m={{ base: '0 auto 16px', md: '0 auto 28px', xl: '0 auto 35px' }}
-        width={{ xl: '85%' }}
-        bg='#222'
+        width={{ base: '90%', xl: '85%' }}
       >
         <Text>Cidades +100</Text>
 
-        <Flex justify='space-between' overflowWrap='normal' width='500px'>
+        <Grid
+          width={{ md: '100%' }}
+          columnGap={{ base: '0', md: `calc((100% - ${cardItemsForRowCount} * 256px)/${cardItemsForRowCount-1})`}}
+          rowGap={{
+            base: '20px',
+            md: '28px',
+          }}
+          templateColumns={{
+            base: '1fr',
+            md: '1fr 1fr',
+            lg: '1fr 1fr 1fr',
+            xl: 'repeat(4, 1fr)',
+            '2xl': 'repeat(5, 1fr)',
+          }}
+        >
           <CityCard />
           <CityCard />
           <CityCard />
           <CityCard />
           <CityCard />
           <CityCard />
-        </Flex>
+        </Grid>
       </Flex>
     </>
   );
