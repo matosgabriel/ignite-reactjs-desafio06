@@ -1,10 +1,18 @@
 import { Button, Flex, Image } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
+import { useCallback } from 'react';
 
 interface HeaderProps {
   showBackButton?: boolean;
 }
 
 function Header({ showBackButton = false }: HeaderProps) {
+  const router = useRouter();
+
+  const backToHome = useCallback(() => {
+    router.push('/');
+  }, []);
+  
   return (
     <Flex
       as='header'
@@ -22,8 +30,7 @@ function Header({ showBackButton = false }: HeaderProps) {
       >
         {showBackButton && (
           <Button
-            as='a'
-            href='/'
+            onClick={backToHome}
             position='absolute'
             left='0'
             bg='transparent'
