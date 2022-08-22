@@ -5,6 +5,8 @@ import {
   HStack,
   Grid,
   VStack,
+  Tooltip,
+  Image,
 } from '@chakra-ui/react';
 import Head from 'next/head';
 import { useMemo } from 'react';
@@ -141,15 +143,22 @@ export default function Continent() {
             >
               {plus100Cities}
             </Text>
-            <Text
-              fontSize={{ base: '18px', md: '21px', xl: '24px' }}
-              lineHeight={{ base: '27px', md: '30px', xl: '36px' }}
-              fontWeight={{ base: 400, lg: 600 }}
-              fontFamily='Poppins'
-              color='gray.800'
-            >
-              cidades +100
-            </Text>
+            
+            <Flex flexDir='row' align='baseline'>
+              <Text
+                fontSize={{ base: '18px', md: '21px', xl: '24px' }}
+                lineHeight={{ base: '27px', md: '30px', xl: '36px' }}
+                fontWeight={{ base: 400, lg: 600 }}
+                fontFamily='Poppins'
+                color='gray.800'
+              >
+                cidades +100
+              </Text>
+
+              <Tooltip label='100 cidades mais visitadas no mundo'>
+                <Image  ml='5px' src='/info_icon.svg' height={{ base: '10px', md: '12px', lg: '14px', xl: '16px' }} />
+              </Tooltip>
+            </Flex>
           </Flex>
         </HStack>
       </Flex>
@@ -185,7 +194,6 @@ export default function Continent() {
             md: '1fr 1fr',
             lg: '1fr 1fr 1fr',
             xl: 'repeat(4, 1fr)',
-            '2xl': 'repeat(5, 1fr)',
           }}
         >
           <CityCard />
