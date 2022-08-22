@@ -161,7 +161,17 @@ export default function Continent() {
         m={{ base: '0 auto 16px', md: '0 auto 28px', xl: '0 auto 35px' }}
         width={{ base: '90%', xl: '85%' }}
       >
-        <Text>Cidades +100</Text>
+        <Text
+          fontSize={{ base: '24px', md: '28px', xl: '36px' }}
+          lineHeight={{ base: '36px', md: '40px', xl: '54px' }}
+          fontFamily='Poppins'
+          fontWeight={500}
+          mb={{ base: '20px', md: '30px', xl: '40px' }}
+          textAlign='left'
+          width='100%'
+        >
+          Cidades +100
+        </Text>
 
         <Grid
           width={{ md: '100%' }}
