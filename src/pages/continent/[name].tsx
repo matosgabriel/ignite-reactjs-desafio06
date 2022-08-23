@@ -1,30 +1,50 @@
+import { useCallback, useEffect, useMemo, useState } from 'react';
+
 import {
   Flex,
   Text,
   useBreakpoint,
   HStack,
   Grid,
-  VStack,
   Tooltip,
   Image,
 } from '@chakra-ui/react';
 import Head from 'next/head';
-import { useMemo } from 'react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { useRouter } from 'next/router';
+
 import { CityCard } from '~/components/CityCard';
 import { Header } from '~/components/Header';
+import { api } from '~/utils/api';
+
+interface City {
+  name: string;
+  country: string;
+}
+
+interface Response {
+  cities_count: number;
+  contries_count: number;
+  languages_count: number;
+  cities: City[];
+}
 
 export default function Continent() {
+  const router = useRouter();
+  const { name } = router.query;
+
   const breakpoint = useBreakpoint();
+  const [cities, setCities] = useState<City[]>([]);
+
   const countriesCount = 50;
   const languagesCount = 60;
   const plus100Cities = 24;
 
   const cardItemsForRowCount = useMemo(() => {
-    switch(breakpoint) {
+    switch (breakpoint) {
       case 'base':
         return 1;
       case 'md':
@@ -37,6 +57,18 @@ export default function Continent() {
         return 5;
     }
   }, [breakpoint]);
+
+  const loadCities = useCallback(async () => {
+    if (name) {
+      const { data } = await api.get<Response>(`/${name}`);
+
+      setCities(data.cities);
+    }
+  }, [name, setCities]);
+
+  useEffect(() => {
+    loadCities();
+  }, [loadCities]);
 
   return (
     <>
@@ -143,7 +175,7 @@ export default function Continent() {
             >
               {plus100Cities}
             </Text>
-            
+
             <Flex flexDir='row' align='baseline'>
               <Text
                 fontSize={{ base: '18px', md: '21px', xl: '24px' }}
@@ -156,7 +188,11 @@ export default function Continent() {
               </Text>
 
               <Tooltip label='100 cidades mais visitadas no mundo'>
-                <Image  ml='5px' src='/info_icon.svg' height={{ base: '10px', md: '12px', lg: '14px', xl: '16px' }} />
+                <Image
+                  ml='5px'
+                  src='/info_icon.svg'
+                  height={{ base: '10px', md: '12px', lg: '14px', xl: '16px' }}
+                />
               </Tooltip>
             </Flex>
           </Flex>
@@ -184,7 +220,12 @@ export default function Continent() {
 
         <Grid
           width={{ md: '100%' }}
-          columnGap={{ base: '0', md: `calc((100% - ${cardItemsForRowCount} * 256px)/${cardItemsForRowCount-1})`}}
+          columnGap={{
+            base: '0',
+            md: `calc((100% - ${cardItemsForRowCount} * 256px)/${
+              cardItemsForRowCount - 1
+            })`,
+          }}
           rowGap={{
             base: '20px',
             md: '28px',

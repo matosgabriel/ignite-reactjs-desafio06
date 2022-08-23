@@ -6,14 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev:server": "yarn json-server --watch continents_data.json -p 3333"
   },
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
     "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "axios": "^0.27.2",
     "framer-motion": "^6.3.3",
+    "json-server": "^0.17.0",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",

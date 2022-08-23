@@ -173,7 +173,7 @@ export default function Home() {
             <ContinentSlideItem
               title='Antártida'
               description='O continente mais frio'
-              bgImageSrc='/antartida_image.jpg'
+              bgImageSrc='/antarctica_image.jpg'
             />
           </SwiperSlide>
         </Swiper>

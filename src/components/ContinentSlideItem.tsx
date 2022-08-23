@@ -1,6 +1,7 @@
-import { Button, Flex, Text } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
 import { useCallback } from 'react';
+
+import { Flex, Text } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 
 interface ContinentSlideItemProps {
   title: string;
@@ -14,9 +15,9 @@ function ContinentSlideItem({
   bgImageSrc,
 }: ContinentSlideItemProps) {
   const router = useRouter();
-  
+
   const openContinentPage = useCallback(() => {
-    router.push('continent');
+    router.push('continent/teste');
   }, []);
 
   return (
