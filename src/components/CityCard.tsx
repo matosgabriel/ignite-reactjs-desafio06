@@ -1,6 +1,12 @@
 import { Flex, Image, Text } from '@chakra-ui/react';
 
-function CityCard() {
+interface CityCardProps {
+  cityName: string;
+  countryName: string;
+  countryFlagUrl: string;
+}
+
+function CityCard({ cityName, countryName, countryFlagUrl }: CityCardProps) {
   return (
     <Flex
       flexDir='column'
@@ -32,7 +38,7 @@ function CityCard() {
             fontWeight={600}
             color='gray.800'
           >
-            Londres
+            {cityName}
           </Text>
           <Text
             mt={{ base: '12px' }}
@@ -42,12 +48,12 @@ function CityCard() {
             fontWeight={500}
             color='gray.400'
           >
-            Reino Unido
+            {countryName}
           </Text>
         </Flex>
 
         <Image
-          src='/europe_image.jpg'
+          src={countryFlagUrl}
           objectFit='cover'
           height={{ base: '40px' }}
           width={{ base: '40px' }}

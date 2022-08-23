@@ -7,18 +7,20 @@ interface ContinentSlideItemProps {
   title: string;
   description: string;
   bgImageSrc: string;
+  name: string;
 }
 
 function ContinentSlideItem({
   title,
   description,
   bgImageSrc,
+  name,
 }: ContinentSlideItemProps) {
   const router = useRouter();
 
   const openContinentPage = useCallback(() => {
-    router.push('continent/teste');
-  }, []);
+    router.push(`continent/${name}`);
+  }, [name, router]);
 
   return (
     <Flex

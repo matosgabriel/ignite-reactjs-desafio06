@@ -139,6 +139,7 @@ export default function Home() {
               title='Europa'
               description='O continente mais antigo'
               bgImageSrc='/europe_image.jpg'
+              name='europe'
             />
           </SwiperSlide>
           <SwiperSlide>
@@ -146,6 +147,7 @@ export default function Home() {
               title='Ásia'
               description='O continente mais populoso'
               bgImageSrc='/asia_image.jpg'
+              name='asia'
             />
           </SwiperSlide>
           <SwiperSlide>
@@ -153,6 +155,7 @@ export default function Home() {
               title='África'
               description='O continente mais plural'
               bgImageSrc='/africa_image.jpg'
+              name='africa'
             />
           </SwiperSlide>
           <SwiperSlide>
@@ -160,6 +163,7 @@ export default function Home() {
               title='América'
               description='O continente com maior diversidade'
               bgImageSrc='/america_image.jpg'
+              name='america'
             />
           </SwiperSlide>
           <SwiperSlide>
@@ -167,6 +171,7 @@ export default function Home() {
               title='Oceania'
               description='O continente mais isolado'
               bgImageSrc='/oceania_image.jpg'
+              name='oceania'
             />
           </SwiperSlide>
           <SwiperSlide>
@@ -174,6 +179,7 @@ export default function Home() {
               title='Antártida'
               description='O continente mais frio'
               bgImageSrc='/antarctica_image.jpg'
+              name='antarctica'
             />
           </SwiperSlide>
         </Swiper>
