@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dev:server": "yarn json-server --watch continents_data.json -p 3333"
+    "server": "yarn json-server --watch continents_data.json -p 3333"
   },
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
